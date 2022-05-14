@@ -1,2 +1,2 @@
 # trello
-Trello is a Web-Based, Kanban-style, List-Making Application
+Trello is a Web-Based, Kanban-Style, List-Making Application
