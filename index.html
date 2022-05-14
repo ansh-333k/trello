@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+		<meta name="application-name" content="TRELLO">
+		<meta name="description" content="PROJECT">
+		<meta name="author" content="ANSH KUSHWAHA">
+		<meta name="color-scheme" content="dark">
+		<meta name="theme-color" content="black" media="(prefers-color-scheme: dark)">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" crossorigin="anonymous">
+		<noscript>JavaScript Error !!! :- Not Supported OR Currenlty Blocked by Your Browser</noscript>
+		<title>TRELLO</title>
+	</head>
+	<body class="bg-dark text-light">
+		<header class="container-fluid sticky-top bg-dark navbar navbar-dark row justify-content-center">
+			<nav class="container-fluid nav navbar-nav nav-pills">
+				<button type="button" class="container-fluid navbar-brand nav-link bi bi-house-fill btn btn-dark btn-xxl btn-outline-dark fs-1 fw-bold shadow" title="TRELLO - HOME PAGE" autofocus>&nbsp;&nbsp;TRELLO</button>
+			</nav>
+		</header>
+		<main id="app">
+			<section>
+				<table class="container table table-dark fs-4 fw-bold">
+					<thead>
+						<tr>
+							<th scope="col" class="col-4 bg-primary rounded-pill rounded-3"><span class="row justify-content-center fs-1 fw-bold">TO DO</span></th>
+							<th scope="col" class="col-4 bg-primary rounded-pill rounded-3"><span class="row justify-content-center fs-1 fw-bold">DOING</span></th>
+							<th scope="col" class="col-4 bg-primary rounded-pill rounded-3"><span class="row justify-content-center fs-1 fw-bold">DONE</span></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<table class="container table table-danger fs-4 fw-bold">
+									<thead>
+										<tr>
+											<th scope="col" class="bg-dark">
+												<span class="row justify-content-center"><button type="button" @click="Add('To_Do')" class="bi bi-plus-circle-fill btn btn-info btn-xxl btn-outline-dark fs-1 fw-bold shadow link-light" title="ADD CARD" autofocus></button></span>
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr v-for="Card in To_Do">
+											<td class="border border-secondary border-5">
+												<dl>
+													<dt> {{ Card.Title }} </dt>
+													<dd class="fs-6"> => {{ Card.Description }} </dd>
+													<buton type="button" @click="Edit('To_Do', Card.Title)" class="btn btn-info btn-xxl display-1 fw-bold shadow link-light">Edit</buton>
+													<buton type="button" @click="Next('To_Do', Card.Title)" class="btn btn-danger btn-xxl display-1 fw-bold shadow link-light">Doing</buton>
+												</dl>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+							<td>
+								<table class="container table table-warning fs-4 fw-bold">
+									<thead>
+										<tr>
+											<th scope="col" class="bg-dark">
+												<span class="row justify-content-center"><button type="button" @click="Add('Doing')" class="bi bi-plus-circle-fill btn btn-info btn-xxl btn-outline-dark fs-1 fw-bold shadow link-light" title="ADD CARD" autofocus></button></span>
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr v-for="Card in Doing">
+											<td class="border border-secondary border-5">
+												<dl>
+													<dt> {{ Card.Title }} </dt>
+													<dd class="fs-6"> => {{ Card.Description }} </dd>
+													<buton type="button" @click="Edit('Doing', Card.Title)" class="btn btn-info btn-xxl display-1 fw-bold shadow link-light">Edit</buton>
+													<buton type="button" @click="Next('Doing', Card.Title)" class="btn btn-warning btn-xxl display-1 fw-bold shadow link-light">Done</buton>
+												</dl>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+							<td>
+								<table class="container table table-success fs-4 fw-bold">
+									<thead>
+										<tr>
+											<th scope="col" class="bg-dark">
+												<span class="row justify-content-center"><button type="button" @click="Add('Done')" class="bi bi-plus-circle-fill btn btn-info btn-xxl btn-outline-dark fs-1 fw-bold shadow link-light" title="ADD CARD" autofocus></button></span>
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr v-for="Card in Done">
+											<td class="border border-secondary border-5">
+												<dl>
+													<dt> {{ Card.Title }} </dt>
+													<dd class="fs-6"> => {{ Card.Description }} </dd>
+													<buton type="button" @click="Edit('Done', Card.Title)" class="btn btn-info btn-xxl display-1 fw-bold shadow link-light">Edit</buton>
+													<buton type="button" @click="Next('Done', Card.Title)" class="btn btn-success btn-xxl display-1 fw-bold shadow link-light">Remove</buton>
+												</dl>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+		</main>
+		<footer class="container-fluid position-fixed bottom-0 bg-dark text-center">
+			<address>
+				<button type="button" class="container-fluid btn btn-dark btn-xxl display-1 fw-bold shadow link-light" title="PORTFOLIO" onclick="location='https://ansh-333k.github.io'" autofocus>&nbsp;&nbsp;ANSH KUSHWAHA&nbsp; [ PORTFOLIO SITE ] </button>
+			</address>
+		</footer>
+		<script src="https://unpkg.com/vue@3"></script>
+		<script type="application/javascript" src="script.js"></script>
+	</body>
+</html>
